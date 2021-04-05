@@ -32,7 +32,6 @@ jobs:
 
       run: |
         python Propio.py
-        python datos.py
 
     - uses: stefanzweifel/git-auto-commit-action@v2
       with:
