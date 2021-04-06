@@ -31,7 +31,7 @@ def GuardarPrecio(cod):
                        "Variacion 24 horas": response["price_variation_24h"],
                        "Variacion 7 dias": response["price_variation_7d"],
                        "Fecha":datetime.datetime.now()}])
-    EnviarResumen(df, cod)
+    #EnviarResumen(df, cod)
     return df
 
 def GuardarExcel(df,cod):
