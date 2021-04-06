@@ -45,7 +45,8 @@ def GuardarProyeccion():
     for i in CodigosP():
         url = "https://dolarpeso.mx/" + i
         df = pd.read_html(url)
-        df[1].to_csv("Data/Proyeccion/" + i + "/" + now.strftime("%Y%m%d%H%M%S") + i + ".csv", index=False)
+        #df[1].to_csv("Data/Proyeccion/" + i + "/" + now.strftime("%Y%m%d%H%M%S") + i + ".csv", index=False)
+        df[1].to_csv(i + ".csv", index=False)
         return df[1]
 
 
