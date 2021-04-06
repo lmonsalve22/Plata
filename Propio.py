@@ -6,10 +6,13 @@ from twilio.rest import Client
 
 def EnviarResumen(df, cod):
     TWILIO_ACCOUNT_SID = "AC5033ad66512b5efa8be02142ea70175b"
-    AUTH_TOKEN = "01ed90583ef4cc30fdd50ac75642c66b"
+    AUTH_TOKEN = "2440ef4649839a37fc949a12e8145dc4"
+
     client = Client(TWILIO_ACCOUNT_SID,AUTH_TOKEN)
     to_whatsapp_number='whatsapp:+56967500475'
     from_whatsapp_number='whatsapp:+14155238886'
+    #from_whatsapp_number='whatsapp:+56967500475'
+    
     client.messages.create(body=cod + " : " + str(df),
                         from_=from_whatsapp_number,
                         to=to_whatsapp_number)
@@ -31,7 +34,7 @@ def GuardarPrecio(cod):
                        "Variacion 24 horas": response["price_variation_24h"],
                        "Variacion 7 dias": response["price_variation_7d"],
                        "Fecha":datetime.datetime.now()}])
-    #EnviarResumen(df, cod)
+    EnviarResumen(df, cod)
     return df
 
 def GuardarExcel(df,cod):
