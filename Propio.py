@@ -13,7 +13,7 @@ def EnviarResumen(df, cod):
     from_whatsapp_number='whatsapp:+14155238886'
     #from_whatsapp_number='whatsapp:+56967500475'
     mensaje = cod + " : " + str(df["Ultimo precio"][0])
-    mensaje = mensaje +  "\n" + mensaje
+    #mensaje = mensaje +  "\n" + mensaje
     client.messages.create(body=mensaje,
                         from_=from_whatsapp_number,
                         to=to_whatsapp_number)
