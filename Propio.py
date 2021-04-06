@@ -6,6 +6,9 @@ import requests
 def Codigos():
     return ["eth-clp","btc-clp","bch-clp","ltc-clp"]
 
+def CodigosP():
+    return ["bitcoin-cash","ethereum","bitcoin","litecoin"]
+
 def GuardarPrecio(cod):
     url = 'https://www.buda.com/api/v2/markets/' + cod + '/ticker'
     response = requests.get(url).json()
@@ -25,7 +28,16 @@ def GuardarExcel(df,cod):
     df.to_excel("Data/" +cod + ".xlsx", index = False)
     return df
 
+def GuardarProyeccion(cod = CodigoP()):
+    now = datetime.datetime.now()
+    for i in cod:
+        url = "https://dolarpeso.mx/" + i
+        df = pd.read_html(url)
+        df[1].to_csv("Data\Proyeccion/" + i + "/" + now.strftime("%Y%m%d%H%M%S") + i + ".csv", index=False)
+        return df[1]
+
 if __name__ == '__main__':
     for i in Codigos():
         df = GuardarPrecio(i)
         GuardarExcel(df,i)
+    GuardarProyeccion()
