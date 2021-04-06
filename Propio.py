@@ -2,6 +2,7 @@ import json
 import pandas as pd
 import datetime
 import requests
+from twilio.rest import Client
 
 def EnviarResumen(df, cod):
     TWILIO_ACCOUNT_SID = "AC5033ad66512b5efa8be02142ea70175b"
