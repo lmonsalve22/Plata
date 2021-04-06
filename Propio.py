@@ -28,9 +28,9 @@ def GuardarExcel(df,cod):
     df.to_excel("Data/" +cod + ".xlsx", index = False)
     return df
 
-def GuardarProyeccion(cod = CodigoP()):
+def GuardarProyeccion():
     now = datetime.datetime.now()
-    for i in cod:
+    for i in CodigosP():
         url = "https://dolarpeso.mx/" + i
         df = pd.read_html(url)
         df[1].to_csv("Data\Proyeccion/" + i + "/" + now.strftime("%Y%m%d%H%M%S") + i + ".csv", index=False)
